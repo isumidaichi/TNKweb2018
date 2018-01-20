@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TNK</title>
+
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application' %>
+
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content=
+    "東大起業サークルTNKのホームページです。
+    TNKの活動、卒業生について紹介しています。
+    東大起業サークルですが、東大生に限らず起業を志す者が集まっています。
+    毎年4月に新メンバーを募集しております。">
+
+    <link rel="shortcut icon" href="assets/TNKlogo2.ico">
+
+  </head>
+
+  <body>
+    <div class = "container">
+      <div class = "content">
+        <header class = "header">
+          <div class = "logo-container">
+            <h1><a href="/"><img src= "assets/TNKlogo.png"></a></h1>
+            <span class = "toggle-btn">&#9776;</span>
+          </div>
+          <ul class = "display-none-mobile">
+            <li><a href = "/">Home</a></li>
+            <li><a href = "/activities">Activities</a></li>
+            <li><a href = "/graduates">Graduates</a></li>
+            <li><a href = "/contact">Contact</a></li>
+          </ul>
+        </header>
+
+        <% if request.path_info == "/activities" %>
+          <div class = "banner-wrapper-fixed" style="background-image:url('http://telescope.co.jp/wp-content/uploads/2017/07/20161215-%E5%BC%95%E9%80%80%E3%83%95%E3%82%9A%E3%83%AC%E3%82%BB%E3%82%99%E3%83%B3_161219_0016.jpg');">
+        <% elsif request.path_info == "/graduates" %>
+          <div class = "banner-wrapper-fixed" style="background-image:url('https://www.japantimes.co.jp/wp-content/uploads/2017/09/n-university-a-20170906.jpg');">
+        <% elsif request.path_info == "/contact" %>
+          <div class = "banner-wrapper-fixed" style="background-image:url('http://livedoor.blogimg.jp/deathnote37/imgs/d/2/d2d8899f.JPG');">
+        <% else %>
+          <div class = "banner-wrapper-fixed" style="background-image:url('https://upload.wikimedia.org/wikipedia/commons/2/23/Yasuda_Auditorium_-_Tokyo_University_3.jpg');">
+        <% end %>
+
+
+          <div class = "foreground">
+            <h1></h1>
+          </div>
+        </div>
+
+        <div class = "wrapper">
+        </div>
+
+      </div>
+    </div>
+
+    <%= yield %>
+
+  </body>
+
+  <div class = "container">
+  <div class = "content">
+    <footer>
+      <a href="/"><img src= "assets/TNKlogo.png"></a>
+      <p>The University of Tokyo's Entrepreneur Society</p>
+    </footer>
+  </div>
+</div>
+
+</html>
